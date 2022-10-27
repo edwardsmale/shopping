@@ -1,88 +1,38 @@
-import { collection, Firestore, query, orderBy, getDocs, getDoc } from 'firebase/firestore';
 import React, { FC, useEffect, useState } from 'react';
-import Ingredient from '../Ingredient/Ingredient';
 import './Ingredients.scss';
+import { DataStore } from '@aws-amplify/datastore';
+import { Aisle, Ingredient } from '../../models';
 
-interface IngredientsProps {
-  db: Firestore
-}
+const Ingredients: FC = () => {
 
-class AisleData {
-  id: string;
-  name: string;
-  order: string;
+  const [ingredients, setIngredients] = useState([] as string[]);
 
-  constructor(id: string, name: string, order: string) {
-    this.id = id;
-    this.name = name;
-    this.order = order;
-  }
-}
+  const getIngredients = async () => {
 
-class IngredientData {
-  id: string;
-  name: string;
-  aisle: AisleData;
+    const models = await DataStore.query(Ingredient);
 
-  constructor(id: string, name: string, aisle: AisleData) {
-    this.id = id;
-    this.name = name;
-    this.aisle = aisle;
-  }
-}
-
-const insertSorted = function find_index(arr: AisleData[], n: number, K: AisleData)
-{
-    for (let i = 0; i < n; i++) {
-      
-        if (arr[i].order >= K.order) {
-
-          arr.splice(i, 0, K);
-          return;
-        }            
-    }
-
-    arr.push(K);
-}
-
-const Ingredients: FC<IngredientsProps> = (props: IngredientsProps) => {
-
-  const [ingredients, setIngredients] = useState([] as IngredientData[]);
-
-  const getIngredients = async (db: any) => {
-
-    let itemArray: IngredientData[] = [];
-  
-    const ingredientsRef = collection(db, "ingredient");
-
-    const q = query(ingredientsRef);
- 
-    const querySnapshot = await getDocs(q);
-
-    querySnapshot.forEach(async (doc) => {
-      
-      getDoc(doc.data().aisle).then(async (a: any) => {
-
-        const aisleData = new AisleData(a.id, a.data().name, a.data().order);
-
-        itemArray.push(new IngredientData(doc.id, doc.data().name, aisleData));
-        
-        setIngredients([...itemArray]);
-      });
-    });
+    return models.map(m => m.name || "");
   };
 
   useEffect(() => {
-    getIngredients(props.db);
+    getIngredients().then((result) => {
+      setIngredients(result);
+    });
+    
   }, []);
+
+  // useEffect(() => {
+  //   DataStore.query(Aisle).then((aisles) => {
+  //     DataStore.save(new Ingredient({ "name": "Asparagus", "aisleID": aisles.at(0)?.id || ""}));
+  //   })
+  // }, []);
 
   return (
     <div className="Ingredients Component">
       <div className="Component__title">Ingredients</div>
       <table className="Ingredients__list">{ingredients.map(ingredient => 
-        <tr key={ingredient.id}>
-          <td>{ingredient.aisle.name}</td>
-          <td>{ingredient.name}</td>
+        <tr key={ingredient}>
+          <td>{ingredient}</td>
         </tr>
       )}</table>
     </div>
