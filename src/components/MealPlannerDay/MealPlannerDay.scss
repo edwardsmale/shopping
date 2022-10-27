@@ -1,0 +1,15 @@
+.MealPlannerDay {
+    display: flex;
+
+    margin-bottom: 0.75rem;
+
+    &__day-name {
+        display: block;
+        width: 6rem;
+    }
+
+    &__options {
+        margin-right: 2rem;
+        width: 12rem;
+    }
+}

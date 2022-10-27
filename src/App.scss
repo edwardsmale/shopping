@@ -1,0 +1,45 @@
+.App {
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+}
+
+.App-header {
+  box-sizing: border-box;
+  padding-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: solid 1px #999999;
+  height: 3rem;
+}
+
+.OuterColumns {
+  display: flex;
+}
+
+.Rows {
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  width: 33%;
+  height: 90vh;
+  justify-items: stretch;
+}
+
+.Component {
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  align-items: stretch;
+  box-sizing: border-box;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  min-width: 10rem;
+
+  &__title {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    opacity: 0.75;
+  }
+}
