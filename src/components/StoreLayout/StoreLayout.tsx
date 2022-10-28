@@ -19,6 +19,14 @@ const StoreLayout: FC<StoreLayoutProps> = () => {
   };
 
   useEffect(() => {
+    DataStore.query(Aisle).then(result => {
+      if (result.length === 0) {
+        initiallyCreateAisles();
+      }
+    });    
+  }, [] );
+
+  useEffect(() => {
     getAisles().then((result) => {
       setAisles(result);
     });
