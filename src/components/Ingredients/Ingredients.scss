@@ -1,4 +1,11 @@
 .Ingredients {
-    height: 95rem;
+    height: 90rem;
     background-color: #DDDDFF;
+}
+
+.IngredientsCreate {
+    &__Name,
+    &__Aisle {
+        margin-right: 0.5rem;
+    }
 }

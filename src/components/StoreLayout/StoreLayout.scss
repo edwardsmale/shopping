@@ -1,4 +1,14 @@
 .StoreLayout {
-    height: 25rem;
+    height: 30rem;
     background-color: #EEFF99;
+
+    &__list {
+
+        display: flex;
+        flex-direction: row;
+
+        table {
+            width: 50%;
+        }
+    }
 }

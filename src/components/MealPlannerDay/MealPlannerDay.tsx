@@ -16,6 +16,10 @@ const MealPlannerDay: FC<MealPlannerDayProps> = (props: MealPlannerDayProps) => 
       <option>Pie and Chips</option>
       <option>Roast</option>
     </select>
+    <select className="MealPlannerDay__options">
+      <option>Sandwich</option>
+      <option>Mac n Cheese</option>
+    </select>
   </div>
 );
 

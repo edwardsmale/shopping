@@ -1,6 +1,13 @@
 .App {
   box-sizing: border-box;
   padding: 0.5rem 1rem;
+
+  font-size: 0.75rem;
+}
+
+input, select {
+  padding: 0.0625rem;
+  font-size: 0.75rem;
 }
 
 .App-header {
