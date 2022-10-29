@@ -1,0 +1,62 @@
+.Meals {
+    height: 100%;
+    background-color: #004400;
+    color: white;
+
+    &__list {
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+    }
+
+    tbody {
+
+        td {
+            padding: 0.25rem;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #4C8BF5;
+            color: #fff;
+
+            &:hover {
+                background-color: lighten(#4C8BF5, 10);
+            }
+        }
+
+        tr:nth-child(even) {
+            background-color: #000044;
+            color: #fff;
+
+            &:hover {
+                background-color: lighten(#222244, 10);
+            }
+        }
+    }
+}
+
+.SelectedMeal {
+    &__Name {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+}
+
+.MealIngredientsCreate {
+
+    margin-bottom: 0.5rem;
+
+    &__Select {
+        margin-right: 0.5rem;
+    }
+}
+
+.MealsCreate {
+
+    margin-top: auto;
+    margin-bottom: 0.5rem;
+
+    &__Name {
+        margin-right: 0.5rem;
+        width: 20rem;
+    }
+}

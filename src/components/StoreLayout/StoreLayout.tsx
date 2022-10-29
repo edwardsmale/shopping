@@ -1,11 +1,10 @@
-import React, { ChangeEvent, ChangeEventHandler, FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import './StoreLayout.scss';
 import { DataStore } from '@aws-amplify/datastore';
 import { Aisle, EagerAisle } from '../../models';
 import { Predicates, SortDirection } from 'aws-amplify';
 
 interface StoreLayoutProps {}
-
 
 const StoreLayout: FC<StoreLayoutProps> = () => {
   

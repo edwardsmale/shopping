@@ -5,7 +5,7 @@ import MealPlanner from './components/MealPlanner/MealPlanner';
 import ShoppingList from './components/ShoppingList/ShoppingList';
 import OtherItems from './components/OtherItems/OtherItems';
 import Ingredients from './components/Ingredients/Ingredients';
-import StoreLayout from './components/StoreLayout/StoreLayout';
+import Meals from './components/Meals/Meals';
 
 function App() {
   return (
@@ -17,11 +17,11 @@ function App() {
             <OtherItems></OtherItems>
           </div>
           <div className="Rows">
-            <ShoppingList></ShoppingList>
+            <Meals></Meals>            
           </div>
           <div className="Rows">
             <Ingredients></Ingredients>
-            <StoreLayout></StoreLayout>
+            <ShoppingList></ShoppingList>
           </div>
       </div>
     </div>

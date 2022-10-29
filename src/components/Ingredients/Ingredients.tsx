@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler, FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import './Ingredients.scss';
 import { DataStore } from '@aws-amplify/datastore';
 import { Aisle, EagerAisle, EagerIngredient, Ingredient } from '../../models';
